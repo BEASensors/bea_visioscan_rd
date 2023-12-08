@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="frame_id" default="laser"/><!--Frame ID-->
+  <arg name="laser_ip" default="192.168.1.2"/><!--Laser sensor ethernet ip-->
+  <arg name="laser_port" default="3050"/><!--Laser sensor ethernet port-->
+  <arg name="laser_direction" default="0"/><!--Laser sensor mount direction, 0: normal, 1: upside-down -->
+  <arg name="scan_topic_id" default="scan"/><!--Topic-->
+
+  <node pkg="visioscan_rd" type="bea_node" name="bea_node" respawn="false" output="screen">
+    <param name="frame_id" value="$(arg frame_id)"/>
+    <param name="laser_ip" value="$(arg laser_ip)"/>
+    <param name="laser_port" value="$(arg laser_port)"/>
+    <param name="laser_direction" value="$(arg laser_direction)"/>
+    <param name="scan_topic_id" value="$(arg scan_topic_id)"/>
+  </node>
+</launch>
